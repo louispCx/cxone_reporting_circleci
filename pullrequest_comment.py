@@ -1,7 +1,7 @@
 import json
 with open('cx_summaryConsole.txt') as f:
     html_string=f.readlines()
-    title='![Logo](https://user-images.githubusercontent.com/42570337/152954017-2101d077-2be7-48a8-8d34-618fe5a7c779.png)\n'
+    title='![checkmarx_circleci](https://user-images.githubusercontent.com/99268939/205370786-3aa37659-b5d3-4a44-a48c-ae501470a729.png)'
     output=title
     for s in html_string:
         if 'Details' in s:
