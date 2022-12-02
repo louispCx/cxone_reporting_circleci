@@ -4,7 +4,7 @@ with open('cx_summaryConsole.txt') as f:
     title='![Logo](https://user-images.githubusercontent.com/42570337/152954017-2101d077-2be7-48a8-8d34-618fe5a7c779.png)\n'
     output=title
     for s in html_string:
-        output =+ "###"+s
+        output += "###"+s
     dictionary = {
         "body": output
     }
