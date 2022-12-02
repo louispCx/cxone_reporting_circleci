@@ -25,3 +25,4 @@ else
   --header 'Content-Type: application/json' \
   --data "@cx_github_pullrequest_comment.json"
 fi
+exit 0
