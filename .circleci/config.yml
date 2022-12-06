@@ -38,7 +38,7 @@ jobs:
             scan create \
             -s . \
             --agent CircleCI \
-            --project-name $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
+            --project-name $CIRCLE_PROJECT_REPONAME \
             --scan-types sast,kics,sca \
             --branch $CIRCLE_BRANCH \
             --base-uri $CX_BASE_URI \
