@@ -1,0 +1,59 @@
+#
+# Example job using the CLI image to run a CxAST scan
+#
+# Configuration through environment variables in CircleCI
+#
+# Documentation:
+# https://checkmarx.com/resource/documents/en/34965-68721-checkmarx-one-circleci-integration.html
+#
+# maintainer : Louis Park, louis.park@checkmarx.com, Channel SE
+#
+
+version: 2
+jobs:
+  build:
+    docker:
+      - image: cimg/base:2021.04
+    steps:
+      - checkout
+      - run: 
+          name: "Install maven"
+          command: | 
+            sudo apt-get update && sudo apt-get install -y maven
+            sudo apt-get install -y python
+      - run:
+          name: "Run Scan"
+          command: |
+            pushd ..
+            wget https://github.com/Checkmarx/ast-cli/releases/download/2.0.34/ast-cli_2.0.34_linux_x64.tar.gz
+            tar xzvf ast-cli_*.tar.gz
+            wget https://sca-downloads.s3.amazonaws.com/cli/1.5.71/ScaResolver-linux64.tar.gz
+            tar -xzvf ScaResolver-linux64.tar.gz
+            rm -rf ScaResolver-linux64.tar.gz
+            ./cx configure show
+            ./cx version
+            ./ScaResolver --version
+            popd
+            ../cx \
+            scan create \
+            -s . \
+            --agent CircleCI \
+            --project-name $CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME \
+            --scan-types sast,kics,sca \
+            --branch $CIRCLE_BRANCH \
+            --base-uri $CX_BASE_URI \
+            --base-auth-uri $CX_BASE_AUTH_URI \
+            --tenant $CX_TENANT \
+            --apikey $CX_API_KEY \
+            --sca-resolver ../ScaResolver \
+            --sast-incremental \
+            --report-format json,summaryHTML
+          
+      - run:
+          name: Post Stats to GitHub PR
+          command: |         
+            rm -rf cxone_reporting_circleci
+            git clone https://github.com/louispCx/cxone_reporting_circleci.git
+            chmod a+x cxone_reporting_circleci/pr_comment.sh
+            cxone_reporting_circleci/pr_comment.sh
+ 
