@@ -38,7 +38,7 @@ jobs:
             ./cx version
             ./ScaResolver --version
             popd
-            ../ScaResolver offline -r .cxsca-results.json -s . --scan-containers --log-level debug
+            ../ScaResolver offline -r .cxsca-results.json -s . --scan-containers --log-level Debug
             ../cx \
             scan create \
             -s . \
