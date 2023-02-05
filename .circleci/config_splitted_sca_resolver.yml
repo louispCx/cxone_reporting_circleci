@@ -52,7 +52,7 @@ jobs:
             --apikey $CX_API_KEY \
             --sast-incremental \
             --report-format json,summaryHTML 
-						
+	    
       - run:
           name: Post Stats to GitHub PR
           command: |         
