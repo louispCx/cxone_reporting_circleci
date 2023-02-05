@@ -45,7 +45,7 @@ jobs:
             --base-auth-uri $CX_BASE_AUTH_URI \
             --tenant $CX_TENANT \
             --apikey $CX_API_KEY \
-            --sca-resolver ../ScaResolver \
+            --sca-resolver ../ScaResolver --sca-resolver-params "--scan-containers" \
             --sast-incremental \
             --report-format json,summaryHTML
           
