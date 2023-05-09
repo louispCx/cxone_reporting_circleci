@@ -54,6 +54,6 @@ jobs:
           command: |         
             rm -rf cxone_reporting_circleci
             git clone https://github.com/louispCx/cxone_reporting_circleci.git
-            chmod a+x cxone_reporting_circleci/pr_comment.sh
-            cxone_reporting_circleci/pr_comment.sh
+            chmod a+x cxone_reporting_circleci/pr_comment_cli.sh
+            cxone_reporting_circleci/pr_comment_cli.sh
  
