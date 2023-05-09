@@ -16,7 +16,7 @@ else
   --tenant $CX_TENANT \
   --apikey $CX_API_KEY \
   --namespace $CIRCLE_PROJECT_USERNAME \
-  --reo-name $CIRCLE_PROJECT_REPONAME \
+  --repo-name $CIRCLE_PROJECT_REPONAME \
   --pr-number $pr_response
 fi
 exit 0
