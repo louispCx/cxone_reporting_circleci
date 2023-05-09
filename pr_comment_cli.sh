@@ -2,8 +2,8 @@
 sudo apt-get install jq
 pr_response=$(curl --location --request GET "https://api.github.com/repos/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME/pulls?head=$CIRCLE_PROJECT_USERNAME:$CIRCLE_BRANCH&state=open" \
 -u $GH_USER:$GH_TOKEN)
-#echo "pr_response:"
-#echo $pr_response
+echo "pr_response:"
+echo $pr_response
 if [ $(echo $pr_response | jq length) -eq 0 ]; then
   echo "No PR found to update"
 else
