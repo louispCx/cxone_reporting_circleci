@@ -15,6 +15,7 @@ setup procedure:
   CX_TENANT	: your tenant name of Checkmarx One
   GH_TOKEN	: Github token
   GH_USER	: Github Username
+
 reference: https://checkmarx.com/resource/documents/en/34965-68721-checkmarx-one-circleci-integration.html#UUID-7fde03f0-8bce-049a-730b-6e6d12f59353_id_ASTCircleCIIntegration-InitialSetup
 
 3. test your configuration of CircleCI
