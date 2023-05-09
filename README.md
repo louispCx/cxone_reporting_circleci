@@ -1,6 +1,6 @@
 # cxone_reporting_circleci
 
-This is sample script to enable the decoration of Checkmarx Pull Request using github and CircleCI.
+This is an sample script how to enable the decoration of Checkmarx Pull Request using github and CircleCI.
 
 Checkmarx Document link:
 https://checkmarx.com/resource/documents/en/34965-68653-utils.html#UUID-f98c3771-a704-19b8-ca8e-19de5bae609b
