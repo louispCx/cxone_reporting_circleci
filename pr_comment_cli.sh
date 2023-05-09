@@ -19,6 +19,7 @@ else
   --apikey $CX_API_KEY \
   --namespace $CIRCLE_PROJECT_USERNAME \
   --repo-name $CIRCLE_PROJECT_REPONAME \
+  --token $GH_TOKEN \
   --pr-number $pr_number
 fi
 exit 0
