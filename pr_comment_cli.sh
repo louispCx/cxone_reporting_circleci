@@ -9,6 +9,8 @@ if [ $(echo $pr_response | jq length) -eq 0 ]; then
 else
   python --version
   export CX_SCANID=$(python cxone_reporting_circleci/get_scanID_from_file.py)
+  pr_number=$(echo $CIRCLE_PULL_REQUEST | awk -F / '{print $NF}')
+  echo "pr_number: " $pr_number
   ../cx \
   utils pr github --scan-id=$CX_SCANID \
   --base-uri $CX_BASE_URI \
@@ -17,6 +19,6 @@ else
   --apikey $CX_API_KEY \
   --namespace $CIRCLE_PROJECT_USERNAME \
   --repo-name $CIRCLE_PROJECT_REPONAME \
-  --pr-number $pr_response
+  --pr-number $pr_number
 fi
 exit 0
