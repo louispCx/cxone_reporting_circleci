@@ -13,7 +13,7 @@ else
   #echo "pr_number: " $pr_number
   pr_comment_url=$(echo $pr_response | jq -r ".[]._links.comments.href")
   echo $pr_comment_url
-  pr_number=$(echo $pr_comment_url | awk -F / '{print $NF-1}')
+  pr_number=$(echo $pr_comment_url | awk -F / '{print $(NF-1)}')
   ../cx \
   utils pr github --scan-id=$CX_SCANID \
   --base-uri $CX_BASE_URI \
