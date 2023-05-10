@@ -11,6 +11,8 @@ else
   export CX_SCANID=$(python cxone_reporting_circleci/get_scanID_from_file.py)
   pr_number=$(echo $CIRCLE_PULL_REQUEST | awk -F / '{print $NF}')
   echo "pr_number: " $pr_number
+  pr_comment_url=$(echo $pr_response | jq -r ".[]._links.comments.href")
+  echo $pr_comment_url
   ../cx \
   utils pr github --scan-id=$CX_SCANID \
   --base-uri $CX_BASE_URI \
